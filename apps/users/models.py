@@ -46,23 +46,27 @@ class User(AbstractUser):
         verbose_name_plural = 'Usuarios'
         ordering = ['id']
 
-        username = models.CharField(max_length = 255,
-                                     unique= True,
-                                     verbose_name= 'Nombre usuario')
-        email = models.EmailField(unique=True,
-                                  verbose_name= 'Correo electronico')
-        password = models.CharField(mas_length = 100,
-                                    verbose_name = 'Contraseña')
-        is_active = models = models.BooleanField(default = True,
-                                                 verbose_name = 'Activo')
-        is_staff = models.BooleanField(default = False,
-                                              verbose_name = 'Staff')
-        is_premium = models.BooleanField(default = False,
-                                         verbose_name = 'Premium')
-        date_joined = models.DateTimeField(auto_now_add=True, 
-                                           verbose_name='Fecha de creación')
-        last_login = models.DateTimeField(auto_now_add=True,
-                                          verbose_name='Último inicio de sesión')
-        objects = UserManager() 
-        
-
+    username = models.CharField(max_length = 255,
+                                 unique= True,
+                                 verbose_name= 'Nombre usuario')
+    email = models.EmailField(unique=True,
+                              verbose_name= 'Correo electronico')
+    password = models.CharField(max_length = 100,
+                                verbose_name = 'Contraseña')
+    is_active = models.BooleanField(default = True,
+                                    verbose_name = 'Activo')
+    is_staff = models.BooleanField(default=False,
+                                   verbose_name='Staff')
+    is_premium = models.BooleanField(default = False,
+                                     verbose_name = 'Premium')
+    date_joined = models.DateTimeField(auto_now_add=True, 
+                                       verbose_name='Fecha de creación')
+    last_login = models.DateTimeField(auto_now_add=True,
+                                      verbose_name='Último inicio de sesión')
+    objects = UserManager() 
+    
+    USER_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
+    
+    def __str__(self):
+        return f"{self.id} - {self.username}"

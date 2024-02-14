@@ -49,7 +49,7 @@ DJANGO_APPS = [
 
 
 PROJECT_APPS = [
-    'users',
+    #'apps.users',
 ]
     
 
@@ -103,13 +103,24 @@ WSGI_APPLICATION = 'core_blog.wsgi.application'
 
 
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.environ.get('ENGINE'), 
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'), 
+        'PASSWORD': os.environ.get('PASSWORD'), 
+        'HOST': os.environ.get('HOST'), 
+        'PORT': os.environ.get('PORT'), 
     }
 }
-
 
 #==============================================================================
 #=========================** corsheaders **====================================
@@ -169,7 +180,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL ='users.User'
+#AUTH_USER_MODEL ='users.User'
 
 
 # Internationalization
