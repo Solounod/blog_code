@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 # Create your models here.
 
-class UserManager(BaseUserManager):
+class UserAccountManager(BaseUserManager):
 
     def _create_user(self, username, email, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
@@ -40,7 +40,7 @@ class UserManager(BaseUserManager):
     
 
 
-class User(AbstractUser):
+class UserAccount(AbstractUser):
     class Meta:
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
@@ -63,7 +63,7 @@ class User(AbstractUser):
                                        verbose_name='Fecha de creación')
     last_login = models.DateTimeField(auto_now_add=True,
                                       verbose_name='Último inicio de sesión')
-    objects = UserManager() 
+    objects = UserAccountManager() 
     
     USER_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
