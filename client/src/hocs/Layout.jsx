@@ -1,13 +1,29 @@
 import { Footer } from "../components/navigation/Footer";
-import { HeaderNavbar } from "../components/navigation/HeaderNavbar";
+import HeaderNavbar from "../components/navigation/HeaderNavbar";
+import { check_authenticated, refresh, load_user } from "../redux/actions/auth";
+import { useEffect } from "react";
+import { connect } from "react-redux";
 
-export function Layout ({children}) {
+
+function Layout (props) {
+
+    useEffect(() => {
+        props.refresh()
+        props.check_authenticated()
+        props.load_user()
+    }, [])
 
     return (
         <>
             <HeaderNavbar/>
-                {children}    
+                {props.children}    
             <Footer/>
         </>
     )
 }
+
+export default connect(null, {
+    check_authenticated,
+    refresh,
+    load_user
+}) (Layout)
