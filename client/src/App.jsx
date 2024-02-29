@@ -6,6 +6,8 @@ import { Home } from './containers/pages/Home';
 import Singup from './containers/authentication/Singup';
 import Activate from './containers/authentication/Activate';
 import Login from './containers/authentication/Login';
+import ResetPassword from './containers/authentication/ResetPassword';
+import ConfirmResetPassword from './containers/authentication/ConfirmResetPassword';
 
 
 function App() {
@@ -19,7 +21,9 @@ function App() {
           <Route path="/Registrar" element={<Singup/>} />
           <Route path="/activate/:uid/:token" element={<Activate/>}/>
           <Route path='/login' element={<Login/>}/>
-    
+
+          <Route path='/reset_password' element={<ResetPassword/>}/>
+          <Route path='/password/reset/confirm/:uid/:token' element={<ConfirmResetPassword/>}/>
           
         </Routes>
     </BrowserRouter>

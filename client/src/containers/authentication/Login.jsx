@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/esm/Container';
-import { Layout } from '../../hocs/Layout';
+import Layout from '../../hocs/Layout';
 import Button from 'react-bootstrap/esm/Button';
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth';
@@ -38,6 +38,10 @@ function Login ({login}){
         navigate('/')
     }
 
+    const handleClick = () => {
+        navigate('/reset_password')
+    }
+
 
     return (
         <Layout>
@@ -67,6 +71,7 @@ function Login ({login}){
                         <Button type='submit' variant='primary'>
                             Enviar
                         </Button>
+                        <a onClick={handleClick}><p>Olvidaste la contraseña?</p></a>
                     </Form>
                 </Container>
             </section>

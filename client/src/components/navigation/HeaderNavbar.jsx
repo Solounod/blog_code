@@ -3,14 +3,56 @@ import { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { connect } from "react-redux";
+import { load_user, logout } from "../../redux/actions/auth";
+
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
-export function HeaderNavbar () {
+function HeaderNavbar ({
+    isAuthenticated,
+    logout,
+    user,
+    load_user
+}) {
     const navigate = useNavigate()
+
+    const [redirect, setRedirect] = useState(false);
 
     const [prevScrollTop, setPrevScrollTop] = useState(0);
     const [currentScrollTop, setCurrentScrollTop] = useState(0);
+
+
+    const linkLoginSingup = (
+        <Nav className="ms-auto fw-bolder size-text-nav text-black ">
+            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/Registrar")}>Registrar</Nav.Link>
+            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/login")}>Iniciar sesion</Nav.Link>  
+        </Nav>
+        )
+    
+    const logoutHandler = () => {
+        logout()
+        setRedirect(true)
+    }
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            load_user();
+        }
+    }, [isAuthenticated, load_user]);
+
+    const linkLogoutAndUsername = (
+        <Nav className="ms-auto fw-bolder size-text-nav text-black ">
+            
+            {user?.username && <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/")}>{user.username}</Nav.Link>}
+            <Nav.Link className="text-black px-3  hover-nav" onClick={() => logoutHandler()}>Cerrar sesion</Nav.Link>  
+        </Nav>
+    )
+
+    if (redirect){
+        window.location.reload(false)
+        return navigate('/');
+      }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,19 +83,21 @@ export function HeaderNavbar () {
     }
 
 
-
     return(
         <header className="expand-header fixed-top header">
             <Navbar expand="lg" className="bg-body-tertiary p-3  " >
                 <Container>
-                    <Navbar.Brand onClick={() => handleBrandClick("/")}>Logo empresa</Navbar.Brand>
+                    <Navbar.Brand onClick={() => handleBrandClick("/")}>SpaceOfCoder</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
                     <Navbar.Collapse id="basic-navbar-nav" className="">
-                        <Nav className="ms-auto fw-bolder size-text-nav text-black">
+                        <Nav className="me-auto fw-bolder size-text-nav text-black ">
                             <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/")}>Inicio</Nav.Link>
                             <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/aboutme")}>Categorias blog</Nav.Link>
                             <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/contact")}>Contacto</Nav.Link>
                         </Nav>
+                        {
+                            isAuthenticated ? linkLogoutAndUsername:linkLoginSingup
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -61,3 +105,14 @@ export function HeaderNavbar () {
        
     );
 }
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.Auth.isAuthenticated,
+    user: state.Auth.user
+
+})
+
+export default connect(mapStateToProps, {
+    logout,
+    load_user
+})(HeaderNavbar)

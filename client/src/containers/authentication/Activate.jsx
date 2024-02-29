@@ -1,5 +1,5 @@
 import Button from "react-bootstrap/esm/Button"
-import { Layout} from "../../hocs/Layout"
+import Layout from "../../hocs/Layout"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { connect } from "react-redux"
@@ -21,7 +21,7 @@ function Activate ({activate}) {
     }
 
     if(activate){
-        navigate('/')
+        navigate('/login')
     }
 
     return (

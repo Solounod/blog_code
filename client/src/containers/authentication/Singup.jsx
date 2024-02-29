@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Layout } from "../../hocs/Layout";
+import Layout from "../../hocs/Layout";
 import { signup } from "../../redux/actions/auth";
 
 
