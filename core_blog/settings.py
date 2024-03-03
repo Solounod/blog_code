@@ -51,6 +51,7 @@ DJANGO_APPS = [
 
 PROJECT_APPS = [
     'apps.users',
+    'apps.blog',
 ]
     
 
@@ -60,6 +61,8 @@ THIRD_PARTY_APPS = [
     'djoser',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS 
@@ -67,6 +70,22 @@ INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 #======================^application definition end^=================================
 #==============================================================================
+
+#============================Setting ckeditor-django===========================
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 400,
+        'width': 900,
+    },
+}
+
+
+CKEDITOR_UPLOAD_PATH = "media/"
+
+#=============================END setting ckeditor======================
+#===========================================================================
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
