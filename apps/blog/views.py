@@ -10,7 +10,7 @@ class CategoryBlogList(ListAPIView):
     queryset = CategoryBlog.objects.all()
     serializer_class = CategoryBlogSerializer
 
-class BlogList(ListAPIView):
+class BlogListOfCategory(ListAPIView):
     serializer_class = BlogSerializer
     pagination_class = SmallSetPagination
 
@@ -18,4 +18,14 @@ class BlogList(ListAPIView):
         category = self.kwargs['list_blogs']
         list_blogs = Blog.objects_blog.filter(category__slug_category=category)
         return list_blogs
+    
+
+class BlogList(ListAPIView):
+    queryset = Blog.objects_blog.all()
+    serializer_class = BlogSerializer
+
+class BlogPostDetail(RetrieveAPIView):
+    serializer_class = BlogSerializer
+    lookup_field = 'slug'
+    queryset = Blog.objects_blog.filter()
     
