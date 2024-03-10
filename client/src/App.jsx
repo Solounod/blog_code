@@ -8,6 +8,7 @@ import Activate from './containers/authentication/Activate';
 import Login from './containers/authentication/Login';
 import ResetPassword from './containers/authentication/ResetPassword';
 import ConfirmResetPassword from './containers/authentication/ConfirmResetPassword';
+import CategoryBlog from './components/blog/CategoryBlog';
 
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
 
           <Route path='/reset_password' element={<ResetPassword/>}/>
           <Route path='/password/reset/confirm/:uid/:token' element={<ConfirmResetPassword/>}/>
+
+          <Route path='/categoria' element={<CategoryBlog/>}/>
+
+
           
         </Routes>
     </BrowserRouter>
