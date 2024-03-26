@@ -9,32 +9,36 @@ import Login from './containers/authentication/Login';
 import ResetPassword from './containers/authentication/ResetPassword';
 import ConfirmResetPassword from './containers/authentication/ConfirmResetPassword';
 import CategoryBlog from './components/blog/CategoryBlog';
+import { PageCategory } from './containers/pages/PageCategory';
+import BlogListOfCategory from './components/blog/BlogListOfCategory';
+import { PageListBlogOfCategory } from './containers/pages/PageListBlogOfCategory';
+import DetailPostBlog from './components/blog/DetailPostBlog';
+import { PageDetailPost } from './containers/pages/PageDetailPost';
 
 
 function App() {
- 
+
 
   return (
     <Provider store={store}>
-    <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/Registrar" element={<Singup/>} />
-          <Route path="/activate/:uid/:token" element={<Activate/>}/>
-          <Route path='/login' element={<Login/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/Registrar" element={<Singup />} />
+          <Route path="/activate/:uid/:token" element={<Activate />} />
+          <Route path='/login' element={<Login />} />
 
-          <Route path='/reset_password' element={<ResetPassword/>}/>
-          <Route path='/password/reset/confirm/:uid/:token' element={<ConfirmResetPassword/>}/>
+          <Route path='/reset_password' element={<ResetPassword />} />
+          <Route path='/password/reset/confirm/:uid/:token' element={<ConfirmResetPassword />} />
 
-          <Route path='/categoria' element={<CategoryBlog/>}/>
-
-
-          
+          <Route path='/categoria' element={<PageCategory />} />
+          <Route path='/categoria/:slug_category/' element={<PageListBlogOfCategory/>} />
+          <Route path='/post/:slug/' element={<PageDetailPost/>} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
     </Provider>
   );
-  
+
 }
 
 export default App

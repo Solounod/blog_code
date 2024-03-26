@@ -82,7 +82,7 @@ CKEDITOR_CONFIGS = {
 }
 
 
-CKEDITOR_UPLOAD_PATH = "media/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 #=============================END setting ckeditor======================
 #===========================================================================

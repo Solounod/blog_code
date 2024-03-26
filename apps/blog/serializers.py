@@ -5,6 +5,7 @@ class CategoryBlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = CategoryBlog
         fields = [
+            'id',
             'category_blog',
             'slug_category',
         ]
@@ -13,6 +14,7 @@ class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model= Blog
         fields = [
+            'id',
             'category',
             'title',
             'slug',
