@@ -50,7 +50,7 @@ class Blog(models.Model):
     category = models.ManyToManyField(
         CategoryBlog,
         verbose_name='Categoria')
-    title = RichTextField(
+    title = models.CharField(
         max_length=200,
         verbose_name='Titulo')
     slug = models.SlugField(
@@ -62,7 +62,7 @@ class Blog(models.Model):
         verbose_name='Autor')
     date_publisher = models.DateTimeField(
         default=timezone.now)
-    header = RichTextField(
+    header = models.TextField(
         verbose_name='Encabezado')
     description = RichTextUploadingField(
         verbose_name='Descripción')

@@ -92,7 +92,7 @@ function HeaderNavbar ({
                     <Navbar.Collapse id="basic-navbar-nav" className="">
                         <Nav className="me-auto fw-bolder size-text-nav text-black ">
                             <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/")}>Inicio</Nav.Link>
-                            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/aboutme")}>Categorias blog</Nav.Link>
+                            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/categoria")}>Categorias blog</Nav.Link>
                             <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/contact")}>Contacto</Nav.Link>
                         </Nav>
                         {
