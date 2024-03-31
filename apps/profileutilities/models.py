@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
-from blog.models import Blog
+from apps.blog.models import Blog
 
 # Create your models here.
 
