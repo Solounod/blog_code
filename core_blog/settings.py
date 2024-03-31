@@ -52,6 +52,8 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     'apps.users',
     'apps.blog',
+    'apps.profile_user',
+    'apps.profileutilities'
 ]
     
 

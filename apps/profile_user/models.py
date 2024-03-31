@@ -1,10 +1,15 @@
 from django.db import models
 from django.conf import settings
-from blog.models import Blog
+from apps.blog.models import Blog
 
 # Create your models here.
 
 class ProfileUser(models.Model):
+    class Meta:
+        verbose_name = 'Perfil'
+        verbose_name_plural = 'Perfiles'
+        ordering = ['id']
+
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE)
@@ -19,11 +24,5 @@ class ProfileUser(models.Model):
         null= True,
         blank=True)
     
-
-class SavePostUser(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE)
-    post = models.ForeignKey(
-        Blog,
-        on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.id}-{self.user}"
