@@ -34,9 +34,11 @@ function Login ({login}){
 
     }
 
-    if (activated){
-        navigate('/')
-    }
+    
+
+   if (activated){
+       navigate(`/Profile`)
+   }
 
     const handleClick = () => {
         navigate('/reset_password')
@@ -81,7 +83,7 @@ function Login ({login}){
 }
 
 const mapStateToProps = state => ({
-
+    
 })
 
 export default connect(mapStateToProps, {

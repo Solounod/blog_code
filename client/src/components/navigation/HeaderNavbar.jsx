@@ -44,7 +44,7 @@ function HeaderNavbar ({
     const linkLogoutAndUsername = (
         <Nav className="ms-auto fw-bolder size-text-nav text-black ">
             
-            {user?.username && <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/")}>{user.username}</Nav.Link>}
+            {user?.username && <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick(`/Profile`)}>{user.username}</Nav.Link>}
             <Nav.Link className="text-black px-3  hover-nav" onClick={() => logoutHandler()}>Cerrar sesion</Nav.Link>  
         </Nav>
     )
