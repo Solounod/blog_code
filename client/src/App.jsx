@@ -14,6 +14,7 @@ import BlogListOfCategory from './components/blog/BlogListOfCategory';
 import { PageListBlogOfCategory } from './containers/pages/PageListBlogOfCategory';
 import DetailPostBlog from './components/blog/DetailPostBlog';
 import { PageDetailPost } from './containers/pages/PageDetailPost';
+import { PageProfileUser } from './containers/pages/PageProfileUser';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Profile" element={<PageProfileUser/>} />
           <Route path="/Registrar" element={<Singup />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
           <Route path='/login' element={<Login />} />
