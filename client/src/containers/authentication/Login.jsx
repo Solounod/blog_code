@@ -1,5 +1,5 @@
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/esm/Container';
 import Layout from '../../hocs/Layout';
@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth';
 
 
-function Login ({login}){
+function Login ({login, isAuthenticated}){
     const navigate = useNavigate()
 
     const [formState, setformState] = useState({
@@ -21,7 +21,7 @@ function Login ({login}){
         password
     } = formState;
 
-    const [activated, setActivated] = useState(false);
+    //const [activated, setActivated] = useState(false);
 
     const onChange = (e) => {
         setformState({ ...formState, [e.target.name]: e.target.value})
@@ -30,15 +30,28 @@ function Login ({login}){
     const onSubmit = e => {
         e.preventDefault();
         login(username, password);
-        setActivated(true);
-
+        //setActivated(true);
+        
     }
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate(`/Profile`);
+        }
+    }, [isAuthenticated, navigate]);
+
+
+    
+        
+       /* if (activated && isAuthenticated){
+            navigate(`/Profile`)
+            
+        }*/
+    
 
     
 
-   if (activated){
-       navigate(`/Profile`)
-   }
+  
 
     const handleClick = () => {
         navigate('/reset_password')
@@ -83,7 +96,7 @@ function Login ({login}){
 }
 
 const mapStateToProps = state => ({
-    
+    isAuthenticated: state.Auth.isAuthenticated,
 })
 
 export default connect(mapStateToProps, {
