@@ -15,6 +15,7 @@ import { PageListBlogOfCategory } from './containers/pages/PageListBlogOfCategor
 import DetailPostBlog from './components/blog/DetailPostBlog';
 import { PageDetailPost } from './containers/pages/PageDetailPost';
 import { PageProfileUser } from './containers/pages/PageProfileUser';
+import FormProfileUser from './components/profileuser/FormProfileUser';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route path="/Registrar" element={<Singup />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/form-profile/:user' element={<FormProfileUser/>} />
+
 
           <Route path='/reset_password' element={<ResetPassword />} />
           <Route path='/password/reset/confirm/:uid/:token' element={<ConfirmResetPassword />} />
