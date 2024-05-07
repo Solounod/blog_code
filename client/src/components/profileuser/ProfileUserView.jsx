@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { profile_user_view } from "../../redux/actions/profile_user";
+import Button from 'react-bootstrap/esm/Button';
 
 
 function ProfileUserView (
@@ -23,6 +24,10 @@ function ProfileUserView (
         }
         
     }, [isAuthenticated, user, profile_user_view]);
+
+    const handleBrandClick = (route) => {
+        navigate(route)
+    }
 
 
     const renderProfile = () => {
@@ -66,6 +71,9 @@ function ProfileUserView (
         <section className="container">
            <div className="pt-5 mt-5">
            {renderProfile()}
+            </div>
+            <div>
+                <Button type="submit" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Submit form</Button> 
             </div>
         </section>
     )

@@ -45,11 +45,10 @@ export const profile_user_view = (username) => async dispach => {
 }
 
 export const update_profile_user = (
-    username,
     user,
     first_name,
     last_name,
-    avatar,
+    
 ) => async dispatch => {
     if (localStorage.getItem('access')){
         const config = {
@@ -60,20 +59,19 @@ export const update_profile_user = (
             }
         };
 
-        const username = JSON.stringify({
+        /*const username = JSON.stringify({
             username
-        });
+        });*/
 
         const body = JSON.stringify({
             user,
             first_name,
             last_name,
-            avatar,
-
+           
         });
 
         try {
-            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}api/profile/update/`,username, body, config);
+            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}api/profile/update/${user}`, body, config);
 
             if (response.status === 200){
                 dispatch({
