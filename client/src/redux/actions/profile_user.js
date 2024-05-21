@@ -16,11 +16,6 @@ export const profile_user_view = (username) => async dispach => {
             }
         }
 
-        //const body = JSON.stringify({
-        //    username
-//
-        //});
-
         try{
             const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}api/profile/${username}`,  config);
 
@@ -44,40 +39,53 @@ export const profile_user_view = (username) => async dispach => {
     }
 }
 
+function getCsrfToken() {
+    return document.cookie
+        .split('; ')
+        .find(row => row.startsWith('csrftoken='))
+        ?.split('=')[1];
+}
+
 export const update_profile_user = (
     user,
     first_name,
     last_name,
+    onSuccess
     
 ) => async dispatch => {
     if (localStorage.getItem('access')){
+        const csrfToken = getCsrfToken(); 
+        console.log("CSRF Token:", csrfToken);
         const config = {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': `JWT ${localStorage.getItem('access')}`
-            }
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                //'X-CSRFToken': csrfToken 
+                
+            },
+            withCredentials: true
         };
 
-        /*const username = JSON.stringify({
-            username
-        });*/
-
+    
         const body = JSON.stringify({
-            user,
+            user: user.id,
             first_name,
             last_name,
            
         });
 
         try {
-            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}api/profile/update/${user}`, body, config);
+            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}api/profile/update/${user}/`, body, config);
 
             if (response.status === 200){
                 dispatch({
                     type: GET_PROFILE_USER_UPDATE_SUCCESS,
                     payload: response.data
                 })
+                if (onSuccess){
+                    onSuccess();
+                }
             }else {
                 dispatch({
                     type: GET_PROFILE_USER_UPDATE_FAIL,

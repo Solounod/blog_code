@@ -6,6 +6,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
+    access: localStorage.getItem('access'),
     results: null
 };
 
@@ -17,6 +18,7 @@ function ProfileUser(state = initialState, action){
         case GET_PROFILE_USER_UPDATE_SUCCESS:
             return {
                 ...state,
+                access: localStorage.getItem('access'),
                 results: payload.results
             }
         case GET_PROFILE_USER_VIEW_FAIL:
