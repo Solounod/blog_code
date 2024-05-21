@@ -17,11 +17,12 @@ class ProfileUserViews(ListAPIView):
 class ProfileUserUpdate(UpdateAPIView):
     permission_classes =[IsAuthenticated]
     serializer_class = ProfileUserSerializer
-    
+    #http_method_names = ['put', 'patch', 'get', 'head', 'options', 'trace']
 
     def get_object(self):
         user = self.request.user
         profile, created = ProfileUser.objects.get_or_create(user=user)
+        print("Datos recibidos:", self.request.data)
         return profile
         
 

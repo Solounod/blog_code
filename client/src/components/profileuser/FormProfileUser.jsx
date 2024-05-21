@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/esm/Container';
@@ -8,8 +8,9 @@ import { update_profile_user } from '../../redux/actions/profile_user';
 import Layout from '../../hocs/Layout';
 
 
-function FormProfileUser ({ update_profile_user, user }) {
-    const params = useParams()
+function FormProfileUser ({ update_profile_user, user, isAuthenticated, results }) {
+   
+    const navigate = useNavigate();
 
     const [formState, setformState] = useState({
         first_name: '',
@@ -29,10 +30,21 @@ function FormProfileUser ({ update_profile_user, user }) {
 
     const onSubmit = e => {
         e.preventDefault();
-        update_profile_user(user.username, first_name, last_name)
+        //const username = params.user
+        if(isAuthenticated && user){
+            update_profile_user(user, first_name, last_name, () => {
+                navigate(`/Profile`);
+            })
+           
+        }
+        
     }
 
 
+
+   
+
+    //onClick={() => handleBrandClick('/Profile')}
 
     return (
         <Layout>
@@ -57,7 +69,7 @@ function FormProfileUser ({ update_profile_user, user }) {
                                  onChange={onChange}
                                  placeholder="last_name" />
                             </Form.Group>
-                            <Button type='submit' variant='primary'>
+                            <Button type='submit' variant='primary' >
                                 Enviar
                             </Button>
                         </Form>
@@ -71,6 +83,7 @@ function FormProfileUser ({ update_profile_user, user }) {
 const mapStateToProps = state => ({
     isAuthenticated: state.Auth.isAuthenticated,
     user: state.Auth.user,
+    results: state.ProfileUser.results
 })
 
 export default connect(mapStateToProps, {
