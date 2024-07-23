@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { profile_user_view } from "../../redux/actions/profile_user";
 import Button from 'react-bootstrap/esm/Button';
+import ProfileUtilitiesView from "../profileutilities/ProfileUtilitiesView";
 
 
 function ProfileUserView (
@@ -46,6 +47,7 @@ function ProfileUserView (
                             <li>Apellido: {item.last_name}</li>
                         </ul>
                     </div>
+                   
                 </div>
             ));
         } else {
@@ -75,6 +77,7 @@ function ProfileUserView (
             <div>
                 <Button type="submit" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Submit form</Button> 
             </div>
+            <ProfileUtilitiesView isAuthenticated={isAuthenticated} user={user}/>
         </section>
     )
 }
