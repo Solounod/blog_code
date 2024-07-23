@@ -9,6 +9,7 @@ from apps.blog.models import Blog
 # Create your views here.
 
 class SavePostUserViews(ListAPIView):
+    """Listener posts saving for user"""
     permission_classes = [IsAuthenticated]
     serializer_class = SavePostUserSerializer
 
@@ -17,6 +18,7 @@ class SavePostUserViews(ListAPIView):
         return SavePostUser.objects.filter(user=user)
     
 class SavePostUserRetrieveUpdate(RetrieveUpdateAPIView):
+    """Save post for user"""
     permission_classes = [IsAuthenticated]
     serializer_class = SavePostUserSerializer
 
@@ -33,6 +35,7 @@ class SavePostUserRetrieveUpdate(RetrieveUpdateAPIView):
 
 
 class SavePostUserRetrieveDelete(RetrieveDestroyAPIView):
+    """Delete post save for user"""
     permission_classes = [IsAuthenticated]
     serializer_class = SavePostUserSerializer
     
