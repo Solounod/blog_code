@@ -18,9 +18,9 @@ export const profiles_utilities_view = (username) => async dispatch => {
         
 
         try{
-            console.log(`${import.meta.env.VITE_BACKEND_URL}api/savepostuser/${username}`);
+           
             const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}api/savepostuser/${username}/`,  config);
-            console.log("Respuesta del servidor:", response.data);
+            
 
             if (response.status === 200){
                 dispatch({
@@ -52,7 +52,7 @@ export const profiles_utilities_savepost = (id) => async dispatch => {
         }
 
         try{
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}api/savepostuser/retrieveupdate/${id}`,  config);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}api/savepostuser/retrieveupdate/${id}/`,  config);
 
             if (response.status === 200){
                 dispatch({

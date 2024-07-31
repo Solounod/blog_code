@@ -48,7 +48,7 @@ function ProfileUtilities(state = initialState, action){
                 }
             }
         case GET_PROFILE_UTILITIES_VIEWPOST_USER_SUCCESS:
-            console.log("Datos recibidos en el reducer:", payload);
+            
             return {
                 ...state,
                 access: localStorage.getItem('access'),
