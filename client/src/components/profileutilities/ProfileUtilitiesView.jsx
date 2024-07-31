@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { profiles_utilities_view } from "../../redux/actions/profileutilities";
-
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 
 function ProfileUtilitiesView ({
@@ -12,9 +13,11 @@ function ProfileUtilitiesView ({
     results}) 
     {
 
+    const navigate = useNavigate()
+    
     useEffect(() => {
         if (isAuthenticated && user) {
-            console.log(user.username)
+           
             profiles_utilities_view(user.username);
            
     
@@ -22,14 +25,23 @@ function ProfileUtilitiesView ({
         
     }, [isAuthenticated, user,  profiles_utilities_view]);
 
+    const handleBrandClick = (route) => {
+        navigate(route)
+    }
+
     return (
         <section>
           {results && results.map((item, index) => (
             <div key={index}>
-   <div >{item.id}</div>
-   <div>{item.post_details.title}</div>
-   </div>
-))}
+                <Card style={{ width: '18rem' }} key={index}>
+                    <Card.Body>
+                        <Card.Title>{item.post_details.title}</Card.Title>
+                        <Button variant="primary" onClick={() => handleBrandClick(`/post/${item.post_details.slug}/`)}>Leer</Button>
+                    </Card.Body>
+                </Card>
+              
+            </div>
+            ))}
         </section>
     )
 }
