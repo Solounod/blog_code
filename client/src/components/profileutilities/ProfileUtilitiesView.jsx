@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { profiles_utilities_view } from "../../redux/actions/profileutilities";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import ProfileDeletePost from "./ProfileDeletePost";
 
 
 function ProfileUtilitiesView ({
@@ -37,6 +38,7 @@ function ProfileUtilitiesView ({
                     <Card.Body>
                         <Card.Title>{item.post_details.title}</Card.Title>
                         <Button variant="primary" onClick={() => handleBrandClick(`/post/${item.post_details.slug}/`)}>Leer</Button>
+                        <ProfileDeletePost id={item.id} user={item.user} />
                     </Card.Body>
                 </Card>
               

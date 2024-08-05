@@ -39,9 +39,15 @@ class SavePostUserRetrieveDelete(RetrieveDestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = SavePostUserSerializer
     
-    def get_queryset(self):
+    def get_object(self):
+        
         user = self.request.user
-        return SavePostUser.objects.filter(user=user)
+        id = self.kwargs['pk']
+        obj_destroy = SavePostUser.objects.get(user=user, id=id)
+        try:
+            return self.perform_destroy(obj_destroy)
+        except SavePostUser.DoesNotExist:
+            raise Http404("No SavePostUser matches the given query.")
 
 
 

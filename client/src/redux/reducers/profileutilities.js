@@ -3,6 +3,8 @@ import {
     GET_PROFILE_UTILITIES_SAVEPOST_FAIL,
     GET_PROFILE_UTILITIES_VIEWPOST_USER_SUCCESS,
     GET_PROFILE_UTILITIES_VIEWPOST_USER_FAIL,
+    GET_PROFILE_UTILITIES_DELETEPOST_USER_SUCCESS,
+    GET_PROFILE_UTILITIES_DELETEPOST_USER_FAIL
 } from '../actions/types';
 
 
@@ -59,6 +61,15 @@ function ProfileUtilities(state = initialState, action){
                 ...state,
                 results: null
             }
+        case GET_PROFILE_UTILITIES_DELETEPOST_USER_SUCCESS:
+            return {
+                ...state,
+                id: payload.id,
+                user: payload.user,
+                post: payload.post
+            }
+        case GET_PROFILE_UTILITIES_DELETEPOST_USER_FAIL:
+            return state
 
             default:
                 return state;
