@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useCallback } from 'react';
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { profile_user_view } from "../../redux/actions/profile_user";
@@ -16,15 +17,27 @@ function ProfileUserView (
     const params = useParams()
     const navigate = useNavigate()
 
-    
-
-    useEffect(() => {
+    const stableProfileUserView = useCallback(() => {
         if (isAuthenticated && user) {
             profile_user_view(user.username);
-  
         }
-        
     }, [isAuthenticated, user, profile_user_view]);
+
+    useEffect(() => {
+        stableProfileUserView();
+    }, [stableProfileUserView]);
+
+
+
+
+
+    //useEffect(() => {
+    //    if (isAuthenticated && user) {
+    //        profile_user_view(user.username);
+  //
+    //    }
+    //    
+    //}, [isAuthenticated, user, profile_user_view]);
 
     const handleBrandClick = (route) => {
         navigate(route)
