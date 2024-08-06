@@ -100,7 +100,7 @@ export const profiles_utilities_deletepost = (id) => async dispatch => {
             if (response.status === 200){
                 dispatch({
                     type: GET_PROFILE_UTILITIES_DELETEPOST_USER_SUCCESS,
-                    payload: response.data
+                    payload: {id}
                 });
             }else{
                 dispatch({

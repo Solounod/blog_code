@@ -11,13 +11,13 @@ import {
 const initialState = {
     access: localStorage.getItem('access'),
     results: [],
-    id: null,
-    user: null,
-    post: null,
-    post_details: {
-        title: null,
-        slug: null
-    }
+    //id: null,
+    //user: null,
+    //post: null,
+    //post_details: {
+    //    title: null,
+    //    slug: null
+    //}
 };
 
 function ProfileUtilities(state = initialState, action){
@@ -29,25 +29,25 @@ function ProfileUtilities(state = initialState, action){
                 ...state,
                 access: localStorage.getItem('access'),
                 results: payload,
-                id: payload.id,
-                user: payload.user,
-                post: payload.post,
-                post_details: {
-                    title: payload.title,
-                    slug: payload.slug
-                }
+                //id: payload.id,
+                //user: payload.user,
+                //post: payload.post,
+                //post_details: {
+                //    title: payload.title,
+                //    slug: payload.slug
+                //}
             }
         case GET_PROFILE_UTILITIES_SAVEPOST_FAIL:
             return {
                 ...state,
                 results: payload,
-                id: null,
-                user: null,
-                post: null,
-                post_details: {
-                    title: null,
-                    slug: null
-                }
+                //id: null,
+                //user: null,
+                //post: null,
+                //post_details: {
+                //    title: null,
+                //    slug: null
+                //}
             }
         case GET_PROFILE_UTILITIES_VIEWPOST_USER_SUCCESS:
             
@@ -62,11 +62,10 @@ function ProfileUtilities(state = initialState, action){
                 results: null
             }
         case GET_PROFILE_UTILITIES_DELETEPOST_USER_SUCCESS:
+            const updatedResults = state.results.filter(item => item.id !== payload.id);
             return {
                 ...state,
-                id: payload.id,
-                user: payload.user,
-                post: payload.post
+                results: updatedResults
             }
         case GET_PROFILE_UTILITIES_DELETEPOST_USER_FAIL:
             return state

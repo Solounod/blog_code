@@ -26,13 +26,15 @@ function ProfileUtilitiesView ({
         
     }, [isAuthenticated, user,  profiles_utilities_view]);
 
+    console.log("Current results:", results);
+
     const handleBrandClick = (route) => {
         navigate(route)
     }
 
     return (
         <section>
-          {results && results.map((item, index) => (
+          {results && (Array.isArray(results) ? results : [results]).map((item, index) => (
             <div key={index}>
                 <Card style={{ width: '18rem' }} key={index}>
                     <Card.Body>
