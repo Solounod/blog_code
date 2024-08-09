@@ -53,7 +53,8 @@ PROJECT_APPS = [
     'apps.users',
     'apps.blog',
     'apps.profile_user',
-    'apps.profileutilities'
+    'apps.profileutilities',
+    'apps.contact'
 ]
     
 
@@ -308,10 +309,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #==========================EMAIL CONFIGURATION========================
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'                                                          
-#EMAIL_HOST = os.environ.get('EMAIL_HOST')
-#EMAIL_PORT = os.environ.get('EMAIL_PORT')
-#EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS_USER')
-#EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS_USER')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 #==============================================================================
 #==============================================================================
