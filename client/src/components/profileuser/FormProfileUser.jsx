@@ -40,10 +40,6 @@ function FormProfileUser ({ update_profile_user, user, isAuthenticated, results 
         
     }
 
-
-
-   
-
     //onClick={() => handleBrandClick('/Profile')}
 
     return (
