@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/', include('apps.blog.urls')),
     path('api/', include('apps.profile_user.urls')),
     path('api/', include('apps.profileutilities.urls')),
+    path('api/', include('apps.contact.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

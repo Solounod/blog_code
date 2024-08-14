@@ -19,11 +19,11 @@ function DetailPostBlog({ get_postblogdetail, result }) {
     
 
     return(
-        <section className="container">
+        <section className="container ">
             <div className="pt-5">
            {
                 result ? 
-                <div className="mt-5">
+                <div className="mt-5 text-light">
                     <div><h2>{result.title}</h2></div>
                     <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
                     <div>

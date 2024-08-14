@@ -25,8 +25,8 @@ function HeaderNavbar ({
 
     const linkLoginSingup = (
         <Nav className="ms-auto fw-bolder size-text-nav text-black ">
-            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/Registrar")}>Registrar</Nav.Link>
-            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/login")}>Iniciar sesion</Nav.Link>  
+            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/Registrar")}>Registrar</Nav.Link>
+            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/login")}>Iniciar sesion</Nav.Link>  
         </Nav>
         )
     
@@ -42,10 +42,10 @@ function HeaderNavbar ({
     }, [isAuthenticated, load_user]);
 
     const linkLogoutAndUsername = (
-        <Nav className="ms-auto fw-bolder size-text-nav text-black ">
+        <Nav className="ms-auto fw-bolder size-text-nav text-light ">
             
-            {user?.username && <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick(`/Profile`)}>{user.username}</Nav.Link>}
-            <Nav.Link className="text-black px-3  hover-nav" onClick={() => logoutHandler()}>Cerrar sesion</Nav.Link>  
+            {user?.username && <Nav.Link className="text-lightpx-3  hover-nav" onClick={() => handleBrandClick(`/Profile`)}>{user.username}</Nav.Link>}
+            <Nav.Link className="text-light px-3  hover-nav" onClick={() => logoutHandler()}>Cerrar sesion</Nav.Link>  
         </Nav>
     )
 
@@ -84,16 +84,16 @@ function HeaderNavbar ({
 
 
     return(
-        <header className="expand-header fixed-top header">
-            <Navbar expand="lg" className="bg-body-tertiary p-3  " >
+        <header className="expand-header fixed-top header ">
+            <Navbar expand="lg" className="p-3 bg-black " >
                 <Container>
-                    <Navbar.Brand onClick={() => handleBrandClick("/")}>SpaceOfCoder</Navbar.Brand>
+                    <Navbar.Brand className="text-light" onClick={() => handleBrandClick("/")}>SpaceOfCoder</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
                     <Navbar.Collapse id="basic-navbar-nav" className="">
-                        <Nav className="me-auto fw-bolder size-text-nav text-black ">
-                            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/")}>Inicio</Nav.Link>
-                            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/categoria")}>Categorias blog</Nav.Link>
-                            <Nav.Link className="text-black px-3  hover-nav" onClick={() => handleBrandClick("/contact")}>Contacto</Nav.Link>
+                        <Nav className="me-auto fw-bolder size-text-nav text-light">
+                            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/")}>Inicio</Nav.Link>
+                            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/categoria")}>Categorias blog</Nav.Link>
+                            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/contacto")}>Contacto</Nav.Link>
                         </Nav>
                         {
                             isAuthenticated ? linkLogoutAndUsername:linkLoginSingup

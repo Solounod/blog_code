@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
 from .serializers import ContactMailSerializers, LinkSocialSerializer
 from .models import ContactMail, LinkSocial
+from rest_framework.permissions import AllowAny
 
 
 # Create your views here.
@@ -18,14 +19,16 @@ class LinkSocialList(ListAPIView):
     def get_queryset(self):
         return LinkSocial.objects.all()
     
-@method_decorator(csrf_exempt, name='dispatch')
+#@method_decorator(csrf_exempt, name='dispatch')
+#@csrf_exempt
 class ContactMailAPI(APIView):
+    permission_classes = [AllowAny] 
     def post(self, request):
-        serializer = ContactMailSerializers
+        serializer = ContactMailSerializers(data=request.data)  
 
         if serializer.is_valid():
             name = serializer.validated_data['name']
-            email = serializer.validate_data['email']
+            email = serializer.validated_data['email']
             phone = serializer.validated_data['phone']
             subject = serializer.validated_data['subject']
             message = f"Correo electronico de {name} con remitente {email}\n\n Telefono: {phone}\n\n Mensaje: {serializer.validated_data['message']}"

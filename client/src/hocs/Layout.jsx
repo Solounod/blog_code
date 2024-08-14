@@ -14,11 +14,11 @@ function Layout (props) {
     }, [])
 
     return (
-        <>
+        <div className="">
             <HeaderNavbar/>
                 {props.children}    
             <Footer/>
-        </>
+        </div>
     )
 }
 

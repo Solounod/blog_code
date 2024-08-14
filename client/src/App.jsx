@@ -16,6 +16,7 @@ import DetailPostBlog from './components/blog/DetailPostBlog';
 import { PageDetailPost } from './containers/pages/PageDetailPost';
 import { PageProfileUser } from './containers/pages/PageProfileUser';
 import FormProfileUser from './components/profileuser/FormProfileUser';
+import { Contact } from './containers/pages/Contact';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path='/categoria' element={<PageCategory />} />
           <Route path='/categoria/:slug_category/' element={<PageListBlogOfCategory/>} />
           <Route path='/post/:slug/' element={<PageDetailPost/>} />
+          <Route path='/contacto' element={<Contact/>} />
         </Routes>
       </BrowserRouter>
     </Provider>
