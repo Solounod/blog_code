@@ -43,25 +43,27 @@ function ResetPassword({ reset_password }){
 
     return(
         <Layout>
-            <section className='mt-5 pt-5'>
-                <div>
+            <section className='container mt-5 pt-5 container-md'>
+            <div className="p-4 bg-black border">
+            <div className="text-light">
                     <h2>Cambiar contraceña</h2>
                 </div>
                 <Container>
-                    <Form onSubmit={onSubmit}>
+                    <Form className="pt-2 text-light" onSubmit={onSubmit}>
                         <Form.Group>
-                            <Form.Label>Email de usuario</Form.Label>
+                            <Form.Label className="mt-2">Email de usuario</Form.Label>
                             <Form.Control
                                 type="email"
                                 name="email"
                                 value={email}
                                 onChange={onChange}/>
                         </Form.Group>
-                        <Button type='submit' variant='primary'>
+                        <Button className=" mt-4"  type='submit' variant='outline-light'>
                             Enviar email
                         </Button>
                     </Form>
                 </Container>
+            </div>
             </section>
         </Layout>
     )

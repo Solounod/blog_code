@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { profile_user_view } from "../../redux/actions/profile_user";
 import Button from 'react-bootstrap/esm/Button';
 import ProfileUtilitiesView from "../profileutilities/ProfileUtilitiesView";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 function ProfileUserView (
@@ -27,10 +29,6 @@ function ProfileUserView (
         stableProfileUserView();
     }, [stableProfileUserView]);
 
-
-
-
-
     //useEffect(() => {
     //    if (isAuthenticated && user) {
     //        profile_user_view(user.username);
@@ -42,7 +40,6 @@ function ProfileUserView (
     const handleBrandClick = (route) => {
         navigate(route)
     }
-
 
     const renderProfile = () => {
         if (results && results.length > 0) {
@@ -83,14 +80,20 @@ function ProfileUserView (
         }}
 
     return (
-        <section className="container">
-           <div className="pt-5 mt-5">
+        <section className="container mt-5 pt-5 container-md">
+            <Row>
+            <Col>    
+           <div className="">
            {renderProfile()}
             </div>
             <div>
                 <Button type="submit" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Submit form</Button> 
             </div>
+            </Col>
+            <Col>
             <ProfileUtilitiesView isAuthenticated={isAuthenticated} user={user}/>
+            </Col>
+            </Row>
         </section>
     )
 }

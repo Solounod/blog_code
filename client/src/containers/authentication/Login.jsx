@@ -30,8 +30,7 @@ function Login ({login, isAuthenticated}){
     const onSubmit = e => {
         e.preventDefault();
         login(username, password);
-        //setActivated(true);
-        
+        //setActivated(true);   
     }
 
     useEffect(() => {
@@ -39,35 +38,27 @@ function Login ({login, isAuthenticated}){
             navigate(`/Profile`);
         }
     }, [isAuthenticated, navigate]);
-
-
-    
-        
+   
        /* if (activated && isAuthenticated){
             navigate(`/Profile`)
             
         }*/
     
-
-    
-
-  
-
     const handleClick = () => {
         navigate('/reset_password')
     }
 
-
     return (
         <Layout>
-            <section className='mt-5 pt-5'>
-                <div>
+            <section className='container mt-5 pt-5 container-md '>
+            <div className="p-4 bg-black border">
+                <div className="text-light">
                     <h2>Login</h2>
                 </div>
                 <Container>
-                    <Form onSubmit={onSubmit}>
+                    <Form className="pt-2 text-light" onSubmit={onSubmit}>
                         <Form.Group>
-                            <Form.Label>Nombre usuario</Form.Label>
+                            <Form.Label className="mt-2">Nombre usuario</Form.Label>
                             <Form.Control
                             type="text"
                             name="username"
@@ -75,7 +66,7 @@ function Login ({login, isAuthenticated}){
                             onChange={onChange}/>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Contraceña</Form.Label>
+                            <Form.Label className="mt-2">Contraceña</Form.Label>
                             <Form.Control
                              type="password"
                              name="password"
@@ -83,12 +74,15 @@ function Login ({login, isAuthenticated}){
                              onChange={onChange}
                              placeholder="Password" />
                         </Form.Group>
-                        <Button type='submit' variant='primary'>
+                        <div className="justify-content-center">
+                        <Button className=" mt-4" type='submit' variant='outline-light'>
                             Enviar
                         </Button>
-                        <a onClick={handleClick}><p>Olvidaste la contraseña?</p></a>
+                        <a onClick={handleClick}><p className='mt-2 ' >Olvidaste la contraseña?</p></a>
+                        </div>
                     </Form>
                 </Container>
+                </div>
             </section>
         </Layout>
 
