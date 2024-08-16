@@ -21,10 +21,10 @@ function ListPostBlog({get_bloglistpost, results}){
     }
 
     return(
-        <section className="container pt-5">
-            <div className="pt-5">
-                <div className="d-flex justify-content-center mt-5 text-light">
-                    <h2>Tus mejores articulos y tutoriales de programación</h2>
+        <section className="container ">
+            <div className="">
+                <div className="d-flex justify-content-center mt-1 text-light">
+                    <h2>Explora los mejores articulos</h2>
                 </div>
 
                 <section className="mt-5">
@@ -40,6 +40,7 @@ function ListPostBlog({get_bloglistpost, results}){
                                     <Card.Body>
                                       
                                       <Card.Subtitle className="mb-2 text-muted">{item.authors}</Card.Subtitle>
+                                      <Card.Subtitle className="mb-2 text-muted">{item.date_publisher}</Card.Subtitle>
                                       <Card.Text className="">
                                         {item.header}
                                       </Card.Text>
@@ -50,8 +51,7 @@ function ListPostBlog({get_bloglistpost, results}){
                                       </div>
                                     </Card.Body>
                                 </Card>
-                                </Col>
-                                 
+                                </Col>        
                         ))
                     }
                     </Row>

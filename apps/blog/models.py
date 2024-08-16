@@ -60,8 +60,10 @@ class Blog(models.Model):
     authors = models.TextField(
         max_length=100,
         verbose_name='Autor')
-    date_publisher = models.DateTimeField(
-        default=timezone.now)
+    date_publisher = models.DateField(
+        auto_now_add=False,
+        auto_now=True, 
+        verbose_name='Fecha creacion')
     header = models.TextField(
         verbose_name='Encabezado')
     description = RichTextUploadingField(

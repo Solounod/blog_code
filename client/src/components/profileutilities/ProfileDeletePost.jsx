@@ -27,7 +27,7 @@ function ProfileDeletePost ({
 
     return (
         <div>
-            {isAuthenticated ? <Button variant="danger" onClick={onSubmit}>Eliminar</Button>: <div>
+            {isAuthenticated ? <Button className="mx-3" variant="danger" onClick={onSubmit}>Eliminar</Button>: <div>
             
             </div>}
         </div>

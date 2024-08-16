@@ -45,14 +45,14 @@ function ProfileUserView (
         if (results && results.length > 0) {
             return results.map((item, index) => (
                 <div key={index}>
-                    <div>
+                    <div className="text-light">
                         <h2>Nombre de usuario: {user.username}</h2>
                     </div>
-                    <div>
-                        <img src="https://api.dicebear.com/8.x/fun-emoji/svg?size=48" alt="avatar" />
+                    <div className="mt-3">
+                        <img className="rounded" src="https://api.dicebear.com/8.x/fun-emoji/svg?size=48" alt="avatar" />
                     </div>
-                    <div>
-                        <ul>
+                    <div className="mt-4">
+                        <ul className="text-light">
                             <li>Primer nombre: {item.first_name}</li>
                             <li>Apellido: {item.last_name}</li>
                         </ul>
@@ -81,19 +81,24 @@ function ProfileUserView (
 
     return (
         <section className="container mt-5 pt-5 container-md">
-            <Row>
-            <Col>    
-           <div className="">
-           {renderProfile()}
+            <div className="d-flex justify-content-center mt-4 text-light">
+                        <h2>Perfil de usuario</h2>
             </div>
-            <div>
-                <Button type="submit" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Submit form</Button> 
+            <div className="mt-5">
+                <Row>
+                    <Col>    
+                        <div className="">
+                            {renderProfile()}
+                        </div>
+                    <div className="mt-5">
+                        <Button type="submit" variant="outline-light" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Submit form</Button> 
+                    </div>
+                    </Col>
+                    <Col>
+                        <ProfileUtilitiesView isAuthenticated={isAuthenticated} user={user}/>
+                    </Col>
+                </Row>
             </div>
-            </Col>
-            <Col>
-            <ProfileUtilitiesView isAuthenticated={isAuthenticated} user={user}/>
-            </Col>
-            </Row>
         </section>
     )
 }

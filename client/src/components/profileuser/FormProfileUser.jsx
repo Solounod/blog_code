@@ -44,32 +44,40 @@ function FormProfileUser ({ update_profile_user, user, isAuthenticated, results 
 
     return (
         <Layout>
-            <section className='pt-5'>
+            <section className='container pt-5  container-md '>
+            <div className="p-4 bg-black border">
+            <div className="d-flex justify-content-center mt-5 ">
+                    <h2 className="text-light">Cambio nombre de perfil</h2>
+                </div>
+                <hr />
                 <Container>
                         <Form onSubmit={onSubmit}>
                             <Form.Group>
-                                <Form.Label>Primer nombre</Form.Label>
+                                <Form.Label className='text-light mt-2'>Primer nombre</Form.Label>
                                 <Form.Control
                                 type="text"
                                 name="first_name"
                                 value={first_name}
                                 onChange={onChange}
-                                placeholder="first_name"/>
+                                placeholder=""/>
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label>Segundo Nombre</Form.Label>
+                                <Form.Label className='text-light  mt-2'>Segundo Nombre</Form.Label>
                                 <Form.Control
                                  type="text"
                                  name="last_name"
                                  value={last_name}
                                  onChange={onChange}
-                                 placeholder="last_name" />
+                                 placeholder="" />
                             </Form.Group>
-                            <Button type='submit' variant='primary' >
-                                Enviar
+                            <div className="d-flex justify-content-center">
+                            <Button className=" mt-4" type='submit' variant='outline-light'>
+                                            Enviar
                             </Button>
+                        </div>
                         </Form>
                     </Container>
+            </div>
             </section>
         </Layout>
 

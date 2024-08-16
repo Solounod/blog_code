@@ -43,11 +43,12 @@ function ResetPassword({ reset_password }){
 
     return(
         <Layout>
-            <section className='container mt-5 pt-5 container-md'>
-            <div className="p-4 bg-black border">
+            <section className='container mt-5 pt-5 container-md '>
+            <div className="p-4 bg-black border rounded">
             <div className="text-light">
                     <h2>Cambiar contraceña</h2>
                 </div>
+                <hr />
                 <Container>
                     <Form className="pt-2 text-light" onSubmit={onSubmit}>
                         <Form.Group>

@@ -10,8 +10,8 @@ export function Footer() {
     }
 
     return (
-        <footer>
-            <div className="container py-5 border-bottom z-index-20 position-relative">
+        <footer className="bg-black border mt-5">
+            <div className="container py-5 border-bottom z-index-20 position-relative ">
                 <div className="row pt-5 gy-4">
                     <div className="col-lg-3 col-md-6 text-start">
                         <img src="" alt="imagen-logo" />
