@@ -36,6 +36,7 @@
 
 .hover-nav:hover  {
   color: #ff3318 !important;
+  cursor: pointer;
   transition: 0.5s;
 }
 

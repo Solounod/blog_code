@@ -10,49 +10,27 @@ export function Footer() {
     }
 
     return (
-        <footer className="bg-black border mt-5">
+        <footer className="bg-black border-top mt-5">
             <div className="container py-5 border-bottom z-index-20 position-relative ">
                 <div className="row pt-5 gy-4">
                     <div className="col-lg-3 col-md-6 text-start">
-                        <img src="" alt="imagen-logo" />
-                        <ul className="list-unstyled text-muted">
-                            <li><a className="reset-anchor text-sm" href="">contacto@gmail.cl</a></li>
-                            <li><a className="reset-anchor text-sm" href="">+569999999999</a></li>
+                    <img className='d-block w-50' src="../../public/logo3.png" alt="" />
+                        
+                      
+                    </div>
+                    <div className="col-lg-3 col-md-6 text-start text-light">
+                        <h4>Navegacion</h4>
+                        <ul className="list-unstyled text-muted mb-0">
+                            <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/")}>Inicio</a></li>
+                            <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/categoria")}>Categorias blog</a></li>
+                            <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/contacto")}>Contacto</a></li>
                         </ul>
-                        <ul className="list-inline text-muted">
+                    </div>
+                    <ul className="list-inline text-muted">
                             <li className="list-inline-item" ><a className="reset-anchor" href="https://www.facebook.com/"><FaFacebookF size={20} /></a></li>
                             <li className="list-inline-item" ><a className="reset-anchor" href="https://www.instagram.com/"><FaInstagram size={20} /></a></li>
                             <li className="list-inline-item" ><a className="reset-anchor" href="https://twitter.com/"><FaTwitter size={20} /></a></li>
                         </ul>
-                    </div>
-                    <div className="col-lg-3 col-md-6 text-start">
-                        <h4>Navegacion</h4>
-                        <ul className="list-unstyled text-muted mb-0">
-                            <li className="mb-1"><a className="text-sm reset-anchor hover-nav hover-pointer" onClick={() => handleBrandClick("/")}>Home</a></li>
-                            <li className="mb-1"><a className="text-sm reset-anchor hover-nav hover-pointer" onClick={() => handleBrandClick("/aboutme")}>About me</a></li>
-                            <li className="mb-1"><a className="text-sm reset-anchor hover-nav hover-pointer" onClick={() => handleBrandClick("/service")}>Service</a></li>
-                            <li className="mb-1"><a className="text-sm reset-anchor hover-nav hover-pointer" onClick={() => handleBrandClick("/contact")}>Contact</a></li>
-                        </ul>
-                    </div>
-                    <div className="col-lg-3 col-md-6 text-start">
-                        <h4>Servicios</h4>
-                        <ul className="list-unstyled text-muted mb-0">
-                            <li className="mb-1">Algun servicio</li>
-                            <li className="mb-1">Algun servicio</li>
-                            <li className="mb-1">Algun servicio</li>
-                            <li className="mb-1">Algun servicio</li>
-                            <li className="mb-1">Algun servicio</li>
-                        </ul>
-                    </div>
-                    <div className="col-lg-3 col-md-6 text-start">
-                        <h4>Oficinas</h4>
-                        <ul className="list-unstyled text-muted mb-0">
-                            <li className="mb-1">Direccion 1</li>
-                            <li className="mb-1">Direccion 2</li>
-                            <li className="mb-1">Direccion 3</li>
-                            <li className="mb-1">Direccion 4</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div className="container py-4 z-index-20 position-relative">

@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Stack from 'react-bootstrap/Stack';
 
 function ListPostBlog({get_bloglistpost, results}){
     const navigate = useNavigate()
@@ -31,9 +32,10 @@ function ListPostBlog({get_bloglistpost, results}){
                     <Row>
                     {
                         results && results.map((item, index) => (
-                            
-                                <Col>
-                                <Card className="bg-black text-light border " style={{ width: '18rem', height: '18rem' }} key={index}>
+                           
+                                <Col xs={12} md={6} lg={4}>
+                                    
+                                <Card className="bg-black text-light border mt-md-4 mt-sm-4 mt-2" style={{ width: '18rem', height: '18rem' }} key={index}>
                                     <Card.Header className="border-bottom h-25 d-inline-block">
                                         <Card.Title className="pt-1">{item.title}</Card.Title>
                                     </Card.Header>
@@ -51,7 +53,9 @@ function ListPostBlog({get_bloglistpost, results}){
                                       </div>
                                     </Card.Body>
                                 </Card>
-                                </Col>        
+                               
+                                </Col> 
+                                     
                         ))
                     }
                     </Row>
