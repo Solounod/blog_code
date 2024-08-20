@@ -22,27 +22,40 @@ function CategoryBlog({ get_categories, results}){
 
     return (
         <section className="container mt-5 pt-5">
-            <div className="d-flex justify-content-center">
-                <h2 className="text-light">
-                    Categorias del Blog
-                </h2>
+            <div className="mt-5">
+                <div className="d-flex justify-content-center mt-1 text-light">
+                    <h2 className="fw-bold fs-1">
+                        Categorias del Blog
+                    </h2>
+                </div>
             </div>
-            <ListGroup className="mt-5">
+            <div className="mt-5 ">
             {
                 results ? results.map(category => (
-                   <div >
-                        <ListGroup.Item className="bg-dark " key={category.id}>
-                            <div className="text-light">
-                                <h4>{category.category_blog}</h4>
-                                {console.log(category.slug_category)}
+                   <div className="border ">
+                        <div className=" " key={category.id}>
+                            <div className="row  ">
+                                <div className="col">
+                                <div className="text-light">
+                                    <div className="d-flex justify-content-center bg-black p-2">
+                                    <h4>{category.category_blog}</h4>
+                                    </div>
+                                </div>
+                                </div>
+                                <div className="col-lg-6 ">
+                                    <div>
+                                        <div className="d-flex justify-content-center p-2">
+                                    <Button onClick={() => handleBrandClick(`/categoria/${category.slug_category}/`)} variant='outline-light'>Ver</Button>
+                                </div>
+                                </div>
+                                </div>
                             </div>
-                            <Button onClick={() => handleBrandClick(`/categoria/${category.slug_category}/`)} variant='outline-light'>Ver</Button>
-                        </ListGroup.Item>
+                        </div>
                     </div>
                     
                 )):<>hola</>
             }
-            </ListGroup>
+            </div>
 
         </section>
 
