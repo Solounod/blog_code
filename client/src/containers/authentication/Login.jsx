@@ -67,13 +67,13 @@ function Login ({login, isAuthenticated}){
                             onChange={onChange}/>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label className="mt-2">Contraceña</Form.Label>
+                            <Form.Label className="mt-2">Contraseña</Form.Label>
                             <Form.Control
                              type="password"
                              name="password"
                              value={password}
                              onChange={onChange}
-                             placeholder="Password" />
+                              />
                         </Form.Group>
                         <div className="justify-content-center">
                         <Button className=" mt-4" type='submit' variant='outline-light'>

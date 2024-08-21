@@ -44,35 +44,39 @@ function ConfirmResetPassword({ reset_password_confirm }) {
 
     return(
         <Layout>
-            <section className='mt-5 pt-5'>
-                <div>
-                    <h2>Confirmar cambio de contraceña</h2>
+            <section className='container mt-5 pt-5 container-md '>
+                <div className="p-4 bg-black border rounded">
+                <div className="text-light">
+                    <h2>Confirmar cambio de contraseña</h2>
                 </div>
                 <Container>
-                    <Form onSubmit={onSubmit}>
+                    <Form className="pt-2 text-light" onSubmit={onSubmit}>
                         <Form.Group>
-                            <Form.Label>Nueva contraceña</Form.Label>
+                            <Form.Label className="mt-2">Nueva contraceña</Form.Label>
                             <Form.Control
                             type="password"
                             name="new_password"
                             value={new_password}
                             onChange={onChange}
-                            placeholder="Nueva contraceña"/>
+                            />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Repetir Contraceña</Form.Label>
+                            <Form.Label className="mt-2">Repetir Contraceña</Form.Label>
                             <Form.Control
                              type="password"
                              name="re_new_password"
                              value={re_new_password}
                              onChange={onChange}
-                             placeholder="Repetir contaraceña" />
+                             />
                         </Form.Group>
-                        <Button type='submit' variant='primary'>
-                            Cambiar contraceña
+                        <div className="justify-content-center">
+                        <Button className=" mt-4" type='submit' variant='outline-light'>
+                            Cambiar contraseña
                         </Button>
+                        </div>
                     </Form>
                 </Container>
+                </div>
             </section>
         </Layout>
 

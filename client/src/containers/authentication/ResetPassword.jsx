@@ -46,7 +46,7 @@ function ResetPassword({ reset_password }){
             <section className='container mt-5 pt-5 container-md '>
             <div className="p-4 bg-black border rounded">
             <div className="text-light">
-                    <h2>Cambiar contraceña</h2>
+                    <h2>Cambiar contraseña</h2>
                 </div>
                 <hr />
                 <Container>

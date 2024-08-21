@@ -82,7 +82,7 @@ function ProfileUserView (
     return (
         <section className="container mt-5 pt-5 container-md">
             <div className="d-flex justify-content-center mt-4 text-light">
-                        <h2>Perfil de usuario</h2>
+                <h2 className="fw-bolder fs-1">Perfil de usuario</h2>
             </div>
             <div className="mt-5">
                 <Row>
@@ -91,7 +91,7 @@ function ProfileUserView (
                             {renderProfile()}
                         </div>
                     <div className="mt-5">
-                        <Button type="submit" variant="outline-light" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Submit form</Button> 
+                        <Button type="submit" variant="outline-light" onClick={() => handleBrandClick(`/form-profile/${user.username}`)}>Cambiar datos</Button> 
                     </div>
                     </Col>
                     <Col>
