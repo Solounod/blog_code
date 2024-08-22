@@ -19,12 +19,15 @@ function DetailPostBlog({ get_postblogdetail, result }) {
     
 
     return(
-        <section className="container ">
-            <div className="pt-5">
+        <section className="container mt-5">
+            <div className="mt-5 pt-5">
            {
                 result ? 
-                <div className="mt-5 text-light">
-                    <div><h2>{result.title}</h2></div>
+                <div className="mt-5 text-light ">
+                    <div className="d-flex justify-content-center mt-5 ">
+                        <h2>{result.title}</h2>
+                        
+                    </div>
                     <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
                     <div>
                         <p>{result.authors}</p>

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { load_user, logout } from "../../redux/actions/auth";
 
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Alert from "../Alert";
 
 
 function HeaderNavbar ({
@@ -101,6 +102,7 @@ function HeaderNavbar ({
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <Alert/>
         </header>
        
     );

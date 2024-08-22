@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { setAlert } from './alert';
 import {
     GET_PROFILE_UTILITIES_SAVEPOST_SUCCESS,
     GET_PROFILE_UTILITIES_SAVEPOST_FAIL,
@@ -66,15 +67,18 @@ export const profiles_utilities_savepost = (id) => async dispatch => {
                     type: GET_PROFILE_UTILITIES_SAVEPOST_SUCCESS,
                     payload: response.data
                 });
+                dispatch(setAlert('Articulo guardado en tu perfil','success'))
             }else{
                 dispatch({
                     type: GET_PROFILE_UTILITIES_SAVEPOST_FAIL
                 });
+                dispatch(setAlert('Error al guardar articulo, puede que ya excista en tu perfil', 'danger'));
             }
         }catch(err){
             dispatch({
                 type: GET_PROFILE_UTILITIES_SAVEPOST_FAIL
             });
+            dispatch(setAlert('Error al guardar articulo, puede que ya excista en tu perfil', 'danger'));
         }
     }else{
         dispatch({
