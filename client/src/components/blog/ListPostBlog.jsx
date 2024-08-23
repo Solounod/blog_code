@@ -41,10 +41,14 @@ function ListPostBlog({get_bloglistpost, results}){
                                                 <Card.Title className="pt-1">{item.title}</Card.Title>
                                             </Card.Header>
                                             <Card.Body>
-                                                <Card.Subtitle className="mb-2 text-muted">{item.authors}</Card.Subtitle>
-                                                <Card.Subtitle className="mb-2 text-muted">{item.date_publisher}</Card.Subtitle>
-                                                <Card.Text className="">
+                                                <div className="row">
+                                                    <Card.Subtitle className="mb-2 text-muted col">{item.authors}</Card.Subtitle>
+                                                    <Card.Subtitle className="mb-2 text-muted col">{item.date_publisher}</Card.Subtitle>
+                                                </div>
+                                                <Card.Text className=" overflow-y-hidden" style={{width: '17rem', height: '7rem' }}>
+                                                
                                                   {item.header}
+                                                  
                                                 </Card.Text>
                                                 <div className="position-absolute bottom-0 start-0 m-3">
                                                     <Button  variant="outline-light" onClick={() => handleBrandClick(`/post/${item.slug}/`)}>Leer</Button>

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { setAlert } from './alert';
 import {
     GET_PROFILE_USER_VIEW_SUCCESS,
     GET_PROFILE_USER_VIEW_FAIL,
@@ -86,17 +87,20 @@ export const update_profile_user = (
                 if (onSuccess){
                     onSuccess();
                 }
+                dispatch(setAlert('Su perfil a sido modificado','success'))
             }else {
                 dispatch({
                     type: GET_PROFILE_USER_UPDATE_FAIL,
                     
                 })
+                dispatch(setAlert('Ha ocurrido un error o los datos no son correctos, intenta nuevamente', 'danger'));
             }
         }catch(err){
             dispatch({
                 type: GET_PROFILE_USER_UPDATE_FAIL,
                 
             })
+            dispatch(setAlert('Ha ocurrido un error o los datos no son correctos, intenta nuevamente', 'danger'));
         }
     }else{
         dispatch({

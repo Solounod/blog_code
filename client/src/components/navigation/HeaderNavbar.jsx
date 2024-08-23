@@ -34,6 +34,7 @@ function HeaderNavbar ({
     const logoutHandler = () => {
         logout()
         setRedirect(true)
+        navigate('/');
     }
 
     useEffect(() => {

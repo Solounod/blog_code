@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { connect } from "react-redux";
 import { get_postblogdetail } from "../../redux/actions/blog";
 import ProfileUtilitiesSaveUpdatepost from "../profileutilities/ProfileUtilitiesSaveUpdatepost";
-
+import hljs from 'highlight.js';
 
 function DetailPostBlog({ get_postblogdetail, result }) {
     const params = useParams()
@@ -15,6 +15,11 @@ function DetailPostBlog({ get_postblogdetail, result }) {
         }
     },[get_postblogdetail, params.slug])
 
+    useEffect(() => {
+        // Aplicar el resaltado de sintaxis después de que el contenido se haya renderizado
+        hljs.highlightAll();
+    }, [result]);
+
     console.log(result);
     
 
@@ -24,20 +29,29 @@ function DetailPostBlog({ get_postblogdetail, result }) {
            {
                 result ? 
                 <div className="mt-5 text-light ">
+                    <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
                     <div className="d-flex justify-content-center mt-5 ">
-                        <h2>{result.title}</h2>
+                        <h2 className="fw-bolder">{result.title}</h2>
                         
                     </div>
-                    <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
-                    <div>
-                        <p>{result.authors}</p>
-                        <p>{result.header}</p>
-                    </div>
-                    <div dangerouslySetInnerHTML={{__html: result.description}}>
-
-                    </div>
-                    <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
                     
+                    <div>
+                        <div className="d-flex justify-content-between mt-5 text-white-50">
+                            <p>Autor : {result.authors}</p>
+                            <p>{result.date_publisher}</p>
+                        </div>
+                        <div className="fw-bolder mt-3">
+                            <p>{result.header}</p>
+                        </div>
+                    </div>
+                    <div className="mt-4">
+                        <div dangerouslySetInnerHTML={{__html: result.description}}>
+
+                        </div>
+                    </div>
+                    <div className="mt-5">
+                    <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
+                    </div>
                 </div>
                     
 

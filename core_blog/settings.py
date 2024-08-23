@@ -81,6 +81,8 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
         'height': 400,
         'width': 900,
+        'codeSnippet_theme': 'monokai_sublime',  
+        'extraPlugins': 'codesnippet',
     },
 }
 
