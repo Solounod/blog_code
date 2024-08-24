@@ -63,14 +63,14 @@ function ProfileUserView (
         } else {
             return (
                 <div>
-                    <div>
+                    <div className="text-light">
                         <h2>Nombre de usuario: </h2>
                     </div>
                     <div>
                         <img src="https://api.dicebear.com/8.x/fun-emoji/svg?size=48" alt="avatar" />
                     </div>
-                    <div>
-                        <ul>
+                    <div className="mt-4">
+                        <ul className="text-light">
                             <li>Primer nombre: </li>
                             <li>Apellido: </li>
                         </ul>

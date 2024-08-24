@@ -52,7 +52,7 @@ function ConfirmResetPassword({ reset_password_confirm }) {
                 <Container>
                     <Form className="pt-2 text-light" onSubmit={onSubmit}>
                         <Form.Group>
-                            <Form.Label className="mt-2">Nueva contraceña</Form.Label>
+                            <Form.Label className="mt-2">Nueva contraseña</Form.Label>
                             <Form.Control
                             type="password"
                             name="new_password"
@@ -61,7 +61,7 @@ function ConfirmResetPassword({ reset_password_confirm }) {
                             />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label className="mt-2">Repetir Contraceña</Form.Label>
+                            <Form.Label className="mt-2">Repetir Contraseña</Form.Label>
                             <Form.Control
                              type="password"
                              name="re_new_password"

@@ -25,10 +25,10 @@ export function Footer() {
                     <div className="col-lg-6 col-md-6 text-start text-light">
                         <div className="d-flex justify-content-center">
                             <div>
-                                <h4>Navegacion</h4>
+                                <h4>Navegación</h4>
                                 <ul className="list-unstyled text-muted mb-0">
                                     <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/")}>Inicio</a></li>
-                                    <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/categoria")}>Categorias blog</a></li>
+                                    <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/categoria")}>Categorías blog</a></li>
                                     <li className="mb-1"><a className="text-sm text-light reset-anchor hover-nav hover-pointer text-decoration-none" onClick={() => handleBrandClick("/contacto")}>Contacto</a></li>
                                 </ul>
                             </div>

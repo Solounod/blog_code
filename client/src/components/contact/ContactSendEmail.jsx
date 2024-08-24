@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
@@ -50,8 +51,18 @@ export function ContactSendEmail() {
         formData.append('message', message);
 
         const handleSubmit = async (formData) => {
-            console.log(formData);
             await postContactSendEmail(formData);
+
+            toast.success("Enviado con éxito, en breve nos comunicaremos con usted.", {
+                position: "bottom-center",
+                duration: 5000,
+                style: {
+                    background: "#101010",
+                    color: "#fff",
+                }
+            });
+
+            // Restablece el estado del formulario y la verificación
             setFormData({
                 name: '',
                 email: '',
@@ -59,9 +70,17 @@ export function ContactSendEmail() {
                 subject: '',
                 message: '',
             });
+            resetVerification();
         };
 
         handleSubmit(formData);
+    };
+
+    const resetVerification = () => {
+        setNum1(Math.floor(Math.random() * 9) + 1);
+        setNum2(Math.floor(Math.random() * 9) + 1);
+        setUserResult('');
+        setIsVerified(false);
     };
 
     useEffect(() => {
@@ -71,6 +90,7 @@ export function ContactSendEmail() {
 
     return (
         <section className="container pt-5 container-md">
+            <Toaster/>
             <div className="p-4 bg-black border">
                 <div className="d-flex justify-content-center mt-5">
                     <h2 className="text-light">Contacto</h2>
@@ -131,8 +151,9 @@ export function ContactSendEmail() {
                         </Form.Group>
 
                         <div className="d-flex justify-content-center mt-4">
-                            <div>¿Cuánto es {num1} + {num2}?</div>
+                            <div>Resuelva para enviar {num1} + {num2}</div>
                             <input
+                                className="mx-2"
                                 type="text"
                                 value={userResult}
                                 onChange={(e) => setUserResult(e.target.value)}

@@ -26,7 +26,7 @@ function BlogListOfCategory({get_bloglistOfCategory, results}){
         <section className="container mt-5">
             <div className="mt-5 pt-5">
                 <div className="pt-5 d-flex justify-content-center mt-5 text-light ">
-                    <h2 className="fw-bolder fs-1">Articulos de {params.slug_category}</h2>
+                    <h2 className="fw-bolder fs-1">Artículos de {params.slug_category}</h2>
                 </div>
                 <section className="mt-5">
                     <Row>   

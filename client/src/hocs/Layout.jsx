@@ -8,6 +8,10 @@ import { connect } from "react-redux";
 function Layout (props) {
 
     useEffect(() => {
+        window.scrollTo(0, 0);  
+    }, []);
+
+    useEffect(() => {
         props.refresh()
         props.check_authenticated()
         props.load_user()

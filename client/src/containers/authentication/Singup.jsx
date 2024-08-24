@@ -14,6 +14,11 @@ import { signup } from "../../redux/actions/auth";
       re_password : ''
       })
 
+    const [num1, setNum1] = useState(Math.floor(Math.random() * 9) + 1);
+    const [num2, setNum2] = useState(Math.floor(Math.random() * 9) + 1);
+    const [userResult, setUserResult] = useState('');
+    const [isVerified, setIsVerified] = useState(false);
+
       const {
         username,
         email,
@@ -28,7 +33,20 @@ import { signup } from "../../redux/actions/auth";
       const onSubmit = e => {
         e.preventDefault();
         signup(username, email, password, re_password);
+        resetVerification();
       }
+
+      const resetVerification = () => {
+        setNum1(Math.floor(Math.random() * 9) + 1);
+        setNum2(Math.floor(Math.random() * 9) + 1);
+        setUserResult('');
+        setIsVerified(false);
+      };
+
+      useEffect(() => {
+        const expectedResult = num1 + num2;
+        setIsVerified(parseInt(userResult) === expectedResult);
+    }, [userResult, num1, num2]);
 
     return (
         <Layout>
@@ -76,9 +94,25 @@ import { signup } from "../../redux/actions/auth";
                         onChange={onChange}
                         placeholder="repassword" />
                       </Form.Group>
-                      <Button className=" mt-4"  variant='outline-light' type="submit">
-                          Registrar
-                      </Button>
+                      <div className="d-flex justify-content-center mt-4">
+                            <div>Resuelve para enviar {num1} + {num2}</div>
+                            <input
+                                className="mx-2"
+                                type="text"
+                                value={userResult}
+                                onChange={(e) => setUserResult(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="d-flex justify-content-center mt-4">
+                            {isVerified ? (
+                                <Button type='submit' variant='outline-light'>
+                                    Enviar
+                                </Button>
+                            ) : (
+                                <p>Resuelve la verificación para enviar el formulario.</p>
+                            )}
+                        </div>
                   </Form>
                 </Container>
                     </div> 

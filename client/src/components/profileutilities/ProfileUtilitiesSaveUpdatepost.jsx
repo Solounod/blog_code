@@ -29,7 +29,7 @@ function ProfileUtilitiesSaveUpdatepost ({
 
     return (
         <div>
-           {isAuthenticated ? <Button variant="outline-light" onClick={onSubmit}>Leer mas tarde</Button>: <div>
+           {isAuthenticated ? <Button variant="outline-light" onClick={onSubmit}>Leer más tarde</Button>: <div>
             
            </div>}
         </div>

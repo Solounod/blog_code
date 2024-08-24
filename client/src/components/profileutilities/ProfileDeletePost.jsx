@@ -18,10 +18,7 @@ function ProfileDeletePost ({
             console.log("Enviando Post ID:", id);
             profiles_utilities_deletepost(id);
             //location.reload()
-        }
-
-        
-        
+        }        
     }
 
 

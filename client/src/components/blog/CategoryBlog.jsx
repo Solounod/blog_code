@@ -25,7 +25,7 @@ function CategoryBlog({ get_categories, results}){
             <div className="mt-5">
                 <div className="d-flex justify-content-center mt-1 text-light">
                     <h2 className="fw-bold fs-1">
-                        Categorias del Blog
+                        Categorías del Blog
                     </h2>
                 </div>
             </div>

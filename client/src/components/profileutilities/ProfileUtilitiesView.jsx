@@ -36,7 +36,7 @@ function ProfileUtilitiesView ({
         <section className="container ">
             <div className="">
                 <div className="d-flex justify-content-center  text-light">
-                        <h2>Tus articulos y tutoriales guardados</h2>
+                        <h2>Tus artículos y tutoriales guardados</h2>
                 </div>
                 <div className="mt-5">
                     {results && (Array.isArray(results) ? results : [results]).map((item, index) => (

@@ -11,6 +11,11 @@ import { login } from '../../redux/actions/auth';
 function Login ({login, isAuthenticated}){
     const navigate = useNavigate()
 
+    useEffect(() => {
+        window.scrollTo(0, 0);  
+    }, []);
+
+
     const [formState, setformState] = useState({
         username: '',
         password: ''

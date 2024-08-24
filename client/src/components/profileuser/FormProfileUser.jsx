@@ -47,7 +47,7 @@ function FormProfileUser ({ update_profile_user, user, isAuthenticated, results 
             <section className='container pt-5  container-md '>
             <div className="p-4 bg-black border">
             <div className="d-flex justify-content-center mt-5 ">
-                    <h2 className="text-light">Cambio nombre de perfil</h2>
+                    <h2 className="text-light">Cambiar nombre de perfil</h2>
                 </div>
                 <hr />
                 <Container>
