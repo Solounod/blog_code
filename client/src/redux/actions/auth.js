@@ -89,7 +89,7 @@ export const signup = (username, email, password, re_password) => async dispatch
                 type: SIGNUP_SUCCES,
                 payload: response.data
             });
-            dispatch(setAlert('Te enviamos un correo, por favor activa tu cuenta. Revisa el correo de spam','success'))
+            dispatch(setAlert('Te enviamos un correo, por favor, activa tu cuenta. Revisa el correo de spam','success'))
         }else {
             dispatch({
                 type: SIGNUP_FAIL
@@ -124,7 +124,7 @@ export const activate = (uid, token) => async dispatch => {
                 dispatch({
                     type: ACTIVATION_SUCCESS
                 });
-                dispatch(setAlert('Felicitaciones has activado tu cuenta correctamente','success'))
+                dispatch(setAlert('Felicitaciones, has activado tu cuenta correctamente','success'))
             } else {
                 dispatch({
                     type: ACTIVATION_FAIL
@@ -195,20 +195,20 @@ export const reset_password = email => async dispatch => {
             dispatch({
                 type: RESET_PASSWORD_SUCCESS
             });
-            dispatch(setAlert('Te enviamos un correo para continuar, revisa tu spam','success'))
+            dispatch(setAlert('Te enviamos un correo para continuar; revisa tu spam','success'))
             
         } else {
             dispatch({
                 type: RESET_PASSWORD_FAIL
             });
-            dispatch(setAlert('Ha ocurrido un error, con el correo proporcionado','danger'))
+            dispatch(setAlert('Ha ocurrido un error con el correo proporcionado','danger'))
         }
     }
     catch(err){
         dispatch({
             type: RESET_PASSWORD_FAIL
         }); 
-        dispatch(setAlert('Ha ocurrido un error, con el correo proporcionado','danger')) 
+        dispatch(setAlert('Ha ocurrido un error con el correo proporcionado','danger')) 
     }
 }
 
@@ -240,19 +240,19 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
                 dispatch({
                     type: RESET_PASSWORD_CONFIRM_SUCCESS
                 });
-                dispatch(setAlert('Tu clave a sido cambiada con exito','success'))
+                dispatch(setAlert('Tu clave ha sido cambiada con éxito','success'))
                 
             } else {
                 dispatch({
                     type: RESET_PASSWORD_CONFIRM_FAIL
                 });
-                dispatch(setAlert('Las claves no son correctas','danger')) 
+                dispatch(setAlert('Error: al parecer las claves no coinciden.','danger')) 
             }
         } catch(err){
             dispatch({
                 type: RESET_PASSWORD_CONFIRM_FAIL
             });
-            dispatch(setAlert('Las claves no son correctas','danger')) 
+            dispatch(setAlert('Error: al parecer las claves no coinciden.','danger')) 
         }
     }
 }
@@ -315,7 +315,7 @@ export const login = (username, password) => async dispatch => {
                 type: LOGIN_SUCCESS,
                 payload: response.data
             })
-            dispatch(setAlert('Acceso excitoso','success'))
+            dispatch(setAlert('Acceso exitoso','success'))
         } else {
             dispatch({
                 type: LOGIN_FAIL

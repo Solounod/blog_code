@@ -67,18 +67,18 @@ export const profiles_utilities_savepost = (id) => async dispatch => {
                     type: GET_PROFILE_UTILITIES_SAVEPOST_SUCCESS,
                     payload: response.data
                 });
-                dispatch(setAlert('Articulo guardado en tu perfil','success'))
+                dispatch(setAlert('Artículo guardado en su perfil','success'))
             }else{
                 dispatch({
                     type: GET_PROFILE_UTILITIES_SAVEPOST_FAIL
                 });
-                dispatch(setAlert('Error al guardar articulo, puede que ya excista en tu perfil', 'danger'));
+                dispatch(setAlert('Error al guardar artículo, puede que ya exista en su perfil.', 'danger'));
             }
         }catch(err){
             dispatch({
                 type: GET_PROFILE_UTILITIES_SAVEPOST_FAIL
             });
-            dispatch(setAlert('Error al guardar articulo, puede que ya excista en tu perfil', 'danger'));
+            dispatch(setAlert('Error al guardar artículo, puede que ya exista en su perfil.', 'danger'));
         }
     }else{
         dispatch({
@@ -106,18 +106,18 @@ export const profiles_utilities_deletepost = (id) => async dispatch => {
                     type: GET_PROFILE_UTILITIES_DELETEPOST_USER_SUCCESS,
                     payload: {id}
                 });
-                dispatch(setAlert('Ha sido eliminado el articulo de tu perfil','success'))
+                dispatch(setAlert('Ha sido eliminado el artículo de tu perfil.','success'))
             }else{
                 dispatch({
                     type: GET_PROFILE_UTILITIES_DELETEPOST_USER_FAIL
                 });
-                dispatch(setAlert('Error al eliminar articulo de tu perfil', 'danger'));
+                dispatch(setAlert('Error al eliminar artículo de tu perfil.', 'danger'));
             }
         }catch(err){
             dispatch({
                 type: GET_PROFILE_UTILITIES_DELETEPOST_USER_FAIL
             });
-            dispatch(setAlert('Error al eliminar articulo de tu perfil', 'danger'));
+            dispatch(setAlert('Error al eliminar artículo de tu perfil.', 'danger'));
         }
     }else{
         dispatch({

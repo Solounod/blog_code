@@ -87,7 +87,7 @@ export const update_profile_user = (
                 if (onSuccess){
                     onSuccess();
                 }
-                dispatch(setAlert('Su perfil a sido modificado','success'))
+                dispatch(setAlert('Su perfil ha sido modificado','success'))
             }else {
                 dispatch({
                     type: GET_PROFILE_USER_UPDATE_FAIL,
