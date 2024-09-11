@@ -17,6 +17,7 @@ import { PageDetailPost } from './containers/pages/PageDetailPost';
 import { PageProfileUser } from './containers/pages/PageProfileUser';
 import FormProfileUser from './components/profileuser/FormProfileUser';
 import { Contact } from './containers/pages/Contact';
+import Error from "./containers/Error"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<Error/>} />
           <Route path="/" element={<Home />} />
           <Route path="/Profile" element={<PageProfileUser/>} />
           <Route path="/Registrar" element={<Singup />} />

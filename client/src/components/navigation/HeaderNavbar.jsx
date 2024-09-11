@@ -27,7 +27,7 @@ function HeaderNavbar ({
     const linkLoginSingup = (
         <Nav className="ms-auto fw-bolder size-text-nav text-black ">
             <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/Registrar")}>Registrar</Nav.Link>
-            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/login")}>Iniciar sesion</Nav.Link>  
+            <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/login")}>Iniciar sesión</Nav.Link>  
         </Nav>
         )
     
