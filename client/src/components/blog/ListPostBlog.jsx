@@ -25,7 +25,10 @@ function ListPostBlog({get_bloglistpost, results}){
         <section className="container ">
             <div className="">
                 <div className="d-flex justify-content-center mt-1 text-light">
-                    <h2 className="fw-bold fs-1">Explora los mejores articulos</h2>
+                    <div>
+                        <h2 className="fw-bold fs-1">Explora los mejores articulos </h2>
+                        <h2 className="fw-bold fs-1">de programación y tecnología</h2>
+                    </div>
                 </div>
 
                 <section className="mt-5">
