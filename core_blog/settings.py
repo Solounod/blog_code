@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -162,7 +162,7 @@ CORS_ALLOWED_ORIGINS = [
     
 ]
 
-CORS_ALLOW_CREDENTIALS = True
+#CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = (
     "DELETE",
@@ -318,3 +318,15 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS_USER')
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 #==============================================================================
 #==============================================================================
+
+if DEBUG is False:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+    # Configuración de CORS
+    CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[])
+
+    CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
+     # setting segurity
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True

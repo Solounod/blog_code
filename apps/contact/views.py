@@ -33,7 +33,7 @@ class ContactMailAPI(APIView):
             subject = serializer.validated_data['subject']
             message = f"Correo electronico de {name} con remitente {email}\n\n Telefono: {phone}\n\n Mensaje: {serializer.validated_data['message']}"
             email_from = settings.EMAIL_HOST_USER
-            recipient_list = ["ra.ignacio.j1@gmail.com"]
+            recipient_list = ["ra.ignacio.j1@gmail.com"] #email test
 
             try:
                 send_mail(subject, message, email_from, recipient_list)

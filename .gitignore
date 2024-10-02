@@ -12,6 +12,9 @@ media
 
 
 # Environments
+build
+build/
+client/build
 .env
 .venv
 env/
