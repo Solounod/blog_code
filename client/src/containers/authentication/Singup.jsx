@@ -77,7 +77,7 @@ import { signup } from "../../redux/actions/auth";
                         placeholder="Email" />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Label>Contraceña</Form.Label>
+                        <Form.Label>Contraseña</Form.Label>
                         <Form.Control 
                         type="password"
                         name="password"
@@ -86,7 +86,7 @@ import { signup } from "../../redux/actions/auth";
                         placeholder="Password" />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Label>Repetir Contraceña</Form.Label>
+                        <Form.Label>Repetir Contraseña</Form.Label>
                         <Form.Control 
                         type="password"
                         name="re_password"
