@@ -46,7 +46,7 @@ function ProfileUserView (
             return results.map((item, index) => (
                 <div key={index}>
                     <div className="text-light">
-                        <h2>Nombre de usuario: {user.username}</h2>
+                        <h2>Nombre de usuario: {user?.username}</h2>
                     </div>
                     <div className="mt-3">
                         <img className="rounded" src="https://api.dicebear.com/8.x/fun-emoji/svg?size=48" alt="avatar" />

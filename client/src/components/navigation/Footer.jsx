@@ -18,7 +18,7 @@ export function Footer() {
                     <div className="col-lg-6 col-md-6 text-start">
                         <div>
                             <div className="d-flex justify-content-center">
-                                <img className='d-block w-50' src="../../public/logo3.png" alt="" />
+                                <img className='d-block w-50' src="/static/logo3.png" alt="" />
                             </div>
                         </div>                    
                     </div>

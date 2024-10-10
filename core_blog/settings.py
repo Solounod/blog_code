@@ -319,7 +319,8 @@ EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 #==============================================================================
 #==============================================================================
 
-if DEBUG is False:
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
     # Configuración de CORS
