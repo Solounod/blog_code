@@ -62,7 +62,7 @@ function FormProfileUser ({ update_profile_user, user, isAuthenticated, results 
                                 placeholder=""/>
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label className='text-light  mt-2'>Segundo Nombre</Form.Label>
+                                <Form.Label className='text-light  mt-2'>Apellido</Form.Label>
                                 <Form.Control
                                  type="text"
                                  name="last_name"

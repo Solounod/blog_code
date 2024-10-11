@@ -15,7 +15,7 @@ function ProfileDeletePost ({
         
         //const username = params.user
         if(isAuthenticated && user){
-            console.log("Enviando Post ID:", id);
+            //console.log("Enviando Post ID:", id);
             profiles_utilities_deletepost(id);
             //location.reload()
         }        

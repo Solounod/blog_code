@@ -26,7 +26,7 @@ function ProfileUtilitiesView ({
         
     }, [isAuthenticated, user,  profiles_utilities_view]);
 
-    console.log("Current results:", results);
+    //console.log("Current results:", results);
 
     const handleBrandClick = (route) => {
         navigate(route)

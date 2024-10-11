@@ -20,7 +20,7 @@ function DetailPostBlog({ get_postblogdetail, result }) {
         hljs.highlightAll();
     }, [result]);
 
-    console.log(result);
+    //console.log(result);
     
 
     return(
