@@ -90,7 +90,7 @@ function HeaderNavbar ({
             <Navbar expand="lg" className="p-3 bg-black " >
                 <Container>
                     <Navbar.Brand className="text-light mt-0" onClick={() => handleBrandClick("/")}><img className='d-block' style={{width: '3rem'}} src="/logo3.png" alt="" /></Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className=" bg-light" />
                     <Navbar.Collapse id="basic-navbar-nav" className="">
                         <Nav className="me-auto fw-bolder size-text-nav text-light">
                             <Nav.Link className="text-light px-3  hover-nav" onClick={() => handleBrandClick("/")}>Inicio</Nav.Link>
