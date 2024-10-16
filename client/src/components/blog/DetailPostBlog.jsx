@@ -20,7 +20,7 @@ function DetailPostBlog({ get_postblogdetail, result }) {
         hljs.highlightAll();
     }, [result]);
 
-    //console.log(result);
+    console.log(result);
     
 
     return(
@@ -44,11 +44,17 @@ function DetailPostBlog({ get_postblogdetail, result }) {
                             <p>{result.header}</p>
                         </div>
                     </div>
-                    <div className="mt-4">
-                        <div dangerouslySetInnerHTML={{__html: result.description}}>
-
+                    
+                        <div className="mt-4">
+                            <div className="container-fluid">
+                                <div className="table-responsive">
+                                    <div dangerouslySetInnerHTML={{__html: result.description}}>
+            
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    
                     <div className="mt-5">
                     <ProfileUtilitiesSaveUpdatepost postId={result.id}/>
                     </div>
