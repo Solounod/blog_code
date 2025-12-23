@@ -18,13 +18,13 @@ function ProfileUtilitiesView ({
     const navigate = useNavigate()
     
     useEffect(() => {
-        if (isAuthenticated && user) {
+        if (isAuthenticated && user?.username) {
            
             profiles_utilities_view(user.username);
            
         }
         
-    }, [isAuthenticated, user,  profiles_utilities_view]);
+    }, [isAuthenticated, user?.username]);
 
     console.log("Current results:", results);
 

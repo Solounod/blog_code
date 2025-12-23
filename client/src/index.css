@@ -53,3 +53,22 @@
   display: flex;
   width: max-content;
 }
+
+/* Efectos para las tarjetas de Categoría */
+.category-card:hover {
+    border-color: #fff !important; /* El borde se pone blanco */
+    transform: translateY(-5px);   /* Sube un poco */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Sombra suave */
+}
+
+.category-card:hover .icon-arrow {
+    background-color: #fff !important; /* El fondo de la flecha se pone blanco */
+    color: #000 !important; /* La flecha se pone negra */
+    transition: all 0.3s ease;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
