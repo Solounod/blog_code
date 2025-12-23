@@ -56,7 +56,6 @@ export const update_profile_user = (
 ) => async dispatch => {
     if (localStorage.getItem('access')){
         const csrfToken = getCsrfToken(); 
-        console.log("CSRF Token:", csrfToken);
         const config = {
             headers: {
                 'Accept': 'application/json',
@@ -65,7 +64,7 @@ export const update_profile_user = (
                 //'X-CSRFToken': csrfToken 
                 
             },
-            withCredentials: true
+            //withCredentials: true
         };
 
     
@@ -77,7 +76,8 @@ export const update_profile_user = (
         });
 
         try {
-            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}api/profile/update/${user}/`, body, config);
+            const userId = user.id;
+            const response = await axios.put(`${import.meta.env.VITE_BACKEND_URL}api/profile/update/${userId}/`, body, config);
 
             if (response.status === 200){
                 dispatch({

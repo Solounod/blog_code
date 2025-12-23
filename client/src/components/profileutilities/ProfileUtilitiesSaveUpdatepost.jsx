@@ -10,17 +10,10 @@ function ProfileUtilitiesSaveUpdatepost ({
     user
 }) {
 
-    //useEffect(() => {
-    //    profiles_utilities_savepost(postid)
-    //},[profiles_utilities_savepost])
-    //console.log("Post ID recibido:", postId);  // Agrega esto para verificar el ID
-
-
     const onSubmit = () => {
-        
         //const username = params.user
         if(isAuthenticated && user){
-            //console.log("Enviando Post ID:", postId);
+            console.log("Enviando Post ID:", postId);
             profiles_utilities_savepost(postId);
            
         }
@@ -36,8 +29,6 @@ function ProfileUtilitiesSaveUpdatepost ({
     )
 
 }
-
-
 
 const mapStateToProps = state => ({
     isAuthenticated: state.Auth.isAuthenticated,
